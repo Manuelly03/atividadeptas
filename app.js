@@ -1,8 +1,14 @@
 import express from 'express';
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('API de Tarefas está funcionando!');
+const tarefas = [
+  { id: 1, titulo: 'Estudar Express', concluida: false },
+  { id: 2, titulo: 'Estudar JavaScript', concluida: true },
+  { id: 3, titulo: 'Testar rotas', concluida: false }
+];
+
+app.get('/tarefas', (req, res) => {
+  res.json(tarefas);
 });
 
 app.listen(3000, () => {
